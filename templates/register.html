@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+
+<nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
+    <form action="/Public_Cloud/register/" class="form-inline" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="btn btn-default" value="OK"> 
+    </form>
+</nav>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

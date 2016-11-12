@@ -1,0 +1,70 @@
+
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css"> -->
+<link href="https://fonts.googleapis.com/css?family=Hind+Guntur|PT+Serif" rel="stylesheet">
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/index.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script> -->   
+<script>
+function download(file_name)
+{
+$.ajax({
+			method: 'POST',
+			url: '/Public_Cloud/download/',
+			data: {'file_name': file_name},
+			context: this,
+			async: false,
+			beforeSend: function(xhr) {xhr.setRequestHeader('Authorization', window.userId);},
+			success: function (recvd_file) {
+	            console.log("downloading");
+			},
+		})
+}
+function remove(file_name)
+{
+$.ajax({
+			method: 'POST',
+			url: '/Public_Cloud/remove/',
+			data: {'file_name': file_name},
+			context: this,
+			async: false,
+			beforeSend: function(xhr) {xhr.setRequestHeader('Authorization', window.userId);},
+			success: function (recvd_file) {
+	            alert("file deleted");
+			},
+		})
+}
+	
+</script>
+<body>
+<table id="filetable" class="table-striped" cellspacing="0" border="1" width="100%">
+    <thead>
+     <tr>
+         <th>File Name</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for i in q  %}
+   <tr onclick="play('{{i.file_name}}');">
+   <td>
+  <a href ="/static/{{i.file_name}}" >{{ i.file_name}}</a>
+   <button type="button" id='playlink' value = 'Download' onclick=download('{{i.file_name}}' class="btn btn-default">Download</button>
+   <button type="button" id='removelink' value = 'Download' onclick=remove('{{i.file_name}}' class="btn btn-default">Remove</button>
+   </td>
+   </tr>
+ {% endfor %}
+    </tbody>
+</table>
+</body>
+<nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
+<header>MUSIC ON CLOUD</header>
+<form method = "post" action="../upload/" enctype ="multipart/form-data">{% csrf_token %}
+    <div>     
+        <input type = "submit" value="Upload" class="btn btn-default" id="submit" />
+        <input type="file"  name="files" multiple id="files" />
+    </div>	<!-- <audio id="myaudio1" controls src="http://localhost:8000/polls/play_file/?my_id=108" preload="auto"></audio> -->
+</form>
+</nav>
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nav_bot">

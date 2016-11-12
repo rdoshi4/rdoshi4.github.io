@@ -1,0 +1,9 @@
+<form action="/Public_Cloud/login/" method="post">
+	{% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value=" ">
+	<label for="your_password">Password: </label>
+    <input id="your_password" type="password" name="your_password" value=" ">
+    <input type="submit" value="Login"> 
+	<input type="submit" value="Register">
+</form>		

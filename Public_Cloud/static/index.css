@@ -1,0 +1,45 @@
+body
+{
+    margin-left: 15px; 
+    margin-top: 30px;
+}
+
+#filetable
+{
+    align-content: center;
+    margin-left: 0;
+    border: transparent;
+}
+#myaudio {
+	margin-bottom: 0;
+}
+#main {
+	margin-bottom: 0;
+}
+#submit {
+	margin-right: 0;
+}
+ #files ,#submit{
+    float: right;
+    margin-top: -14px;
+}
+#submit1 {
+	float: right;
+}
+tr:hover td
+{
+    cursor: pointer;
+}
+#nav_top {
+    margin-top: -30px;
+}
+header
+{
+    font-family: 'Hind Guntur', sans-serif;
+    font-size: 30px;
+    color:black;
+}
+#nav_top
+{
+    background-color: black;
+}
