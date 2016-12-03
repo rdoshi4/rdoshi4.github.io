@@ -1,0 +1,27 @@
+h1{
+
+    font-family: 'Josefin Sans', sans-serif;
+    color: azure;
+}
+a
+{
+    float: right;
+    font-size: 25px;
+    color: black;
+    margin-top: -50px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: azure;
+}
+a:hover
+{
+    color:cadetblue;
+}
+p
+{
+ margin-left: -400px;
+ margin-top: 300px;
+ font-family: 'Archivo Narrow', sans-serif;
+}
+#nav_top {
+	background-color: black;
+}
